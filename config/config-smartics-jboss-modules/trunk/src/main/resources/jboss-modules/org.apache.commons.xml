@@ -22,6 +22,7 @@
     <name>org.apache.commons.$1</name>
     <includes>
       <include>
+        <groupId>commons-.*</groupId>
         <artifactId>commons-(.*)</artifactId>
       </include>
     </includes>
