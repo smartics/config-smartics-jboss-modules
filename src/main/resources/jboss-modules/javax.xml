@@ -73,4 +73,85 @@
       </include>
     </includes>
   </module>
+
+  <module>
+    <name>javax.xml.rpc.api</name>
+    <slot>main</slot>
+    <includes>
+      <include>
+        <groupId>javax.xml</groupId>
+        <artifactId>jaxrpc-api</artifactId>
+      </include>
+    </includes>
+    <dependencies>
+      <dependency>
+        <name>javax.api</name>
+      </dependency>
+      <dependency>
+        <name>javax.xml.soap.api</name>
+      </dependency>
+      <dependency>
+        <name>javax.servlet.api</name>
+      </dependency>
+    </dependencies>
+    <export>
+      <includes>
+        <include>javax.xml.soap.api</include>
+      </includes>
+    </export>
+    <skip>true</skip>
+  </module>
+
+  <module>
+    <name>javax.activation.api</name>
+    <slot>main</slot>
+    <includes>
+      <include>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+      </include>
+    </includes>
+    <dependencies>
+      <dependency>
+        <name>javax.api</name>
+      </dependency>
+      <dependency>
+        <name>javax.mail.api</name>
+        <!-- <imports><include path="META-INF"/></imports> -->
+      </dependency>
+      <dependency>
+        <name>com.sun.xml.messaging.saaj</name>
+      </dependency>
+      <dependency>
+        <name>org.jboss.ws.native.jbossws-native-core</name>
+      </dependency>
+      <dependency>
+        <name>org.apache.cxf</name>
+        <optional>true</optional>
+      </dependency>
+    </dependencies>
+    <export>
+      <includes>
+        <include>javax.xml.soap.api</include>
+      </includes>
+    </export>
+    <skip>true</skip>
+  </module>
+
+  <module>
+    <name>javax.xml.soap.saaj-api</name>
+    <slot>main</slot>
+    <includes>
+      <include>
+        <groupId>javax.xml.soap</groupId>
+        <artifactId>saaj-api</artifactId>
+      </include>
+    </includes>
+    <dependencies>
+      <dependency>
+        <name>javax.activation.api</name>
+      </dependency>
+    </dependencies>
+    <skip>true</skip>
+  </module>
 </modules>
