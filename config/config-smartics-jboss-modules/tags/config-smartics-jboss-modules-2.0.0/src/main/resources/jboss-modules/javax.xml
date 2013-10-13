@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright 2013 smartics, Kronseder & Reiner GmbH
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module
+    name="javax.inject.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.inject</groupId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="javax.servlet.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="javax.servlet.jsp.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jsp-api</artifactId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="javax.validation.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.validation</groupId>
+          <artifactId>validation-api</artifactId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="javax.portlet.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>portlet-api</groupId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="javax.xml.rpc.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.xml</groupId>
+          <artifactId>jaxrpc-api</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-dependencies>
+      <dependencies>
+        <match>
+          <includes>
+            <include>javax.xml.soap.api</include>
+          </includes>
+        </match>
+        <apply>
+          <export>true</export>
+        </apply>
+      </dependencies>
+    </apply-to-dependencies>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+        <module name="javax.xml.soap.api" />
+        <module name="javax.servlet.api" />
+      </dependencies>
+    </apply-to-module>
+  </module>
+
+  <module
+    name="javax.activation.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-dependencies>
+      <dependencies>
+        <match>
+          <includes>
+            <include>javax.xml.soap.api</include>
+          </includes>
+        </match>
+        <apply>
+          <export>true</export>
+        </apply>
+      </dependencies>
+    </apply-to-dependencies>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+        <module name="javax.mail.api">
+          <imports>
+            <include path="META-INF" />
+          </imports>
+        </module>
+        <module name="com.sun.xml.messaging.saaj" />
+        <module name="org.jboss.ws.native.jbossws-native-core" />
+        <module
+          name="org.apache.cxf"
+          optional="true" />
+      </dependencies>
+    </apply-to-module>
+  </module>
+
+  <module
+    name="javax.xml.soap.saaj-api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.activation.api" />
+      </dependencies>
+    </apply-to-module>
+  </module>
+</modules>
