@@ -17,7 +17,7 @@
 
 -->
 
-<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor/1">
   <module
     name="org.apache.xalan"
     slot="main">
