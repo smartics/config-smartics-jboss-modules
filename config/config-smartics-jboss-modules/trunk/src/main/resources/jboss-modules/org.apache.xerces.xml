@@ -17,20 +17,30 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.apache.xerces</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>xerces</groupId>
-      </include>
-    </includes>
-    <dependencies>
-      <dependency>
-        <name>javax.api</name>
-      </dependency>
-    </dependencies>
-    <skip>true</skip>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module
+    name="org.apache.xerces"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>xerces</groupId>
+        </include>
+        <include>
+          <groupId>xalan</groupId>
+          <artifactId>serializer</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+      </dependencies>
+    </apply-to-module>
   </module>
 </modules>

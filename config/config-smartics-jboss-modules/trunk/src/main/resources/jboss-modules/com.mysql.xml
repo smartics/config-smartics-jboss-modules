@@ -17,18 +17,20 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>com.mysql</name>
-    <includes>
-      <include>
-        <artifactId>mysql-connector-java</artifactId>
-      </include>
-    </includes>
-    <dependencies>
-      <dependency>
-        <name>javax.api</name>
-      </dependency>
-    </dependencies>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module name="com.mysql">
+    <match>
+      <includes>
+        <include>
+          <artifactId>mysql-connector-java</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+      </dependencies>
+    </apply-to-module>
   </module>
 </modules>

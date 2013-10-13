@@ -17,40 +17,55 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.jboss.as.controller</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-controller</artifactId>
-      </include>
-    </includes>
-    <skip>true</skip>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module
+    name="org.jboss.as.controller"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>org.jboss.as</groupId>
+          <artifactId>jboss-as-controller</artifactId>
+        </include>
+      </includes>
+    </match>
   </module>
 
-  <module>
-    <name>org.jboss.as.naming</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-naming</artifactId>
-      </include>
-    </includes>
-    <skip>true</skip>
+  <module
+    name="org.jboss.as.naming"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>org.jboss.as</groupId>
+          <artifactId>jboss-as-naming</artifactId>
+        </include>
+      </includes>
+    </match>
   </module>
 
-  <module>
-    <name>org.jboss.as.server</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-server</artifactId>
-      </include>
-    </includes>
-    <skip>true</skip>
+  <module
+    name="org.jboss.as.server"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>org.jboss.as</groupId>
+          <artifactId>jboss-as-server</artifactId>
+        </include>
+      </includes>
+    </match>
   </module>
 </modules>

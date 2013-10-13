@@ -17,141 +17,186 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>javax.inject.api</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>javax.inject</groupId>
-      </include>
-    </includes>
-    <skip>true</skip>
-  </module>
-
-  <module>
-    <name>javax.servlet.api</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
-      </include>
-    </includes>
-    <skip>true</skip>
-  </module>
-
-  <module>
-    <name>javax.servlet.jsp.api</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>javax.servlet</groupId>
-        <artifactId>jsp-api</artifactId>
-      </include>
-    </includes>
-    <skip>true</skip>
-  </module>
-
-  <module>
-    <name>javax.validation.api</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>javax.validation</groupId>
-        <artifactId>validation-api</artifactId>
-      </include>
-    </includes>
-    <skip>true</skip>
-  </module>
-
-  <module>
-    <name>javax.portlet.api</name>
-    <includes>
-      <include>
-        <groupId>portlet-api</groupId>
-      </include>
-    </includes>
-  </module>
-
-  <module>
-    <name>javax.xml.rpc.api</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>javax.xml</groupId>
-        <artifactId>jaxrpc-api</artifactId>
-      </include>
-    </includes>
-    <dependencies>
-      <dependency>
-        <name>javax.api</name>
-      </dependency>
-      <dependency>
-        <name>javax.xml.soap.api</name>
-      </dependency>
-      <dependency>
-        <name>javax.servlet.api</name>
-      </dependency>
-    </dependencies>
-    <export>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module
+    name="javax.inject.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
       <includes>
-        <include>javax.xml.soap.api</include>
+        <include>
+          <groupId>javax.inject</groupId>
+        </include>
       </includes>
-    </export>
-    <skip>true</skip>
+    </match>
   </module>
 
-  <module>
-    <name>javax.activation.api</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>javax.activation</groupId>
-        <artifactId>activation</artifactId>
-      </include>
-    </includes>
-    <dependencies>
-      <dependency>
-        <name>javax.api</name>
-      </dependency>
-      <dependency>
-        <name>javax.mail.api</name>
-        <!-- <imports><include path="META-INF"/></imports> -->
-      </dependency>
-      <dependency>
-        <name>com.sun.xml.messaging.saaj</name>
-      </dependency>
-      <dependency>
-        <name>org.jboss.ws.native.jbossws-native-core</name>
-      </dependency>
-      <dependency>
-        <name>org.apache.cxf</name>
-        <optional>true</optional>
-      </dependency>
-    </dependencies>
-    <export>
+  <module
+    name="javax.servlet.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
       <includes>
-        <include>javax.xml.soap.api</include>
+        <include>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </include>
       </includes>
-    </export>
-    <skip>true</skip>
+    </match>
   </module>
 
-  <module>
-    <name>javax.xml.soap.saaj-api</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>javax.xml.soap</groupId>
-        <artifactId>saaj-api</artifactId>
-      </include>
-    </includes>
-    <dependencies>
-      <dependency>
-        <name>javax.activation.api</name>
-      </dependency>
-    </dependencies>
-    <skip>true</skip>
+  <module
+    name="javax.servlet.jsp.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jsp-api</artifactId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="javax.validation.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.validation</groupId>
+          <artifactId>validation-api</artifactId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="javax.portlet.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>portlet-api</groupId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="javax.xml.rpc.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.xml</groupId>
+          <artifactId>jaxrpc-api</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-dependencies>
+      <dependencies>
+        <match>
+          <includes>
+            <include>javax.xml.soap.api</include>
+          </includes>
+        </match>
+        <apply>
+          <export>true</export>
+        </apply>
+      </dependencies>
+    </apply-to-dependencies>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+        <module name="javax.xml.soap.api" />
+        <module name="javax.servlet.api" />
+      </dependencies>
+    </apply-to-module>
+  </module>
+
+  <module
+    name="javax.activation.api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-dependencies>
+      <dependencies>
+        <match>
+          <includes>
+            <include>javax.xml.soap.api</include>
+          </includes>
+        </match>
+        <apply>
+          <export>true</export>
+        </apply>
+      </dependencies>
+    </apply-to-dependencies>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+        <module name="javax.mail.api">
+          <imports>
+            <include path="META-INF" />
+          </imports>
+        </module>
+        <module name="com.sun.xml.messaging.saaj" />
+        <module name="org.jboss.ws.native.jbossws-native-core" />
+        <module
+          name="org.apache.cxf"
+          optional="true" />
+      </dependencies>
+    </apply-to-module>
+  </module>
+
+  <module
+    name="javax.xml.soap.saaj-api"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+    <match>
+      <includes>
+        <include>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.activation.api" />
+      </dependencies>
+    </apply-to-module>
   </module>
 </modules>
