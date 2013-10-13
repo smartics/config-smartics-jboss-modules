@@ -17,14 +17,15 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.apache.commons.$1</name>
-    <includes>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module name="org.apache.commons.$1">
+    <match>
+      <includes>
       <include>
         <groupId>commons-.*</groupId>
         <artifactId>commons-(.*)</artifactId>
       </include>
-    </includes>
+      </includes>
+    </match>
   </module>
 </modules>

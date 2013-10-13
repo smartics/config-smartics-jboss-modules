@@ -16,35 +16,45 @@
     limitations under the License.
 
 -->
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module name="org.javassist">
+    <match>
+      <includes>
+        <include>
+          <groupId>org.javassist</groupId>
+          <artifactId>javassist</artifactId>
+        </include>
+      </includes>
+    </match>
+  </module>
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.javassist</name>
-    <includes>
-      <include>
-        <groupId>org.javassist</groupId>
-        <artifactId>javassist</artifactId>
-      </include>
-    </includes>
+  <module name="org.javassist">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>javassist</groupId>
+          <artifactId>javassist</artifactId>
+        </include>
+      </includes>
+    </match>
   </module>
-  <module>
-    <name>org.javassist</name>
-    <includes>
-      <include>
-        <groupId>javassist</groupId>
-        <artifactId>javassist</artifactId>
-      </include>
-    </includes>
-    <skip>true</skip>
-  </module>
-  <module>
-    <name>org.javassist</name>
-    <includes>
-      <include>
-        <groupId>jboss</groupId>
-        <artifactId>javassist</artifactId>
-      </include>
-    </includes>
-    <skip>true</skip>
+
+  <module name="org.javassist">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>jboss</groupId>
+          <artifactId>javassist</artifactId>
+        </include>
+      </includes>
+    </match>
   </module>
 </modules>

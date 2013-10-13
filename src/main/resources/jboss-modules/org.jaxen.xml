@@ -17,13 +17,20 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.jaxen</name>
-    <includes>
-      <include>
-        <artifactId>jaxen</artifactId>
-      </include>
-    </includes>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module name="org.jaxen">
+    <match>
+      <includes>
+        <include>
+          <artifactId>jaxen</artifactId>
+        </include>
+      </includes>
+    </match>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+      </dependencies>
+    </apply-to-module>
   </module>
 </modules>

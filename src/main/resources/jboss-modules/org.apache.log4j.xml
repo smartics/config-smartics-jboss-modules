@@ -17,13 +17,15 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.apache.log4j</name>
-    <includes>
-      <include>
-        <groupId>log4j</groupId>
-      </include>
-    </includes>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module name="org.apache.log4j">
+    <match>
+      <includes>
+        <include>
+          <groupId>log4j</groupId>
+        </include>
+      </includes>
+    </match>
   </module>
 </modules>
+

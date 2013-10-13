@@ -17,13 +17,14 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.dom4j</name>
-    <includes>
-      <include>
-        <artifactId>dom4j</artifactId>
-      </include>
-    </includes>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module name="org.dom4j">
+    <match>
+      <includes>
+        <include>
+          <artifactId>dom4j</artifactId>
+        </include>
+      </includes>
+    </match>
   </module>
 </modules>

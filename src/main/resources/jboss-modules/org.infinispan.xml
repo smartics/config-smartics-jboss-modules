@@ -17,15 +17,20 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.infinispan</name>
-    <slot>main</slot>
-    <includes>
-      <include>
-        <groupId>org.infinispan</groupId>
-      </include>
-    </includes>
-    <skip>true</skip>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module
+    name="org.infinispan"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>org.infinispan</groupId>
+        </include>
+      </includes>
+    </match>
   </module>
 </modules>

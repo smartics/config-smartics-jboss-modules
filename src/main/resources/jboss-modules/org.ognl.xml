@@ -17,23 +17,34 @@
 
 -->
 
-<modules xmlns="http://smartics.de/jboss-modules-descriptor">
-  <module>
-    <name>org.ognl</name>
-    <includes>
-      <include>
-        <groupId>ognl</groupId>
-      </include>
-    </includes>
-    <dependencies>
-      <dependency>
-        <name>org.javassist</name>
-      </dependency>
-    </dependencies>
-    <export>
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor">
+  <module name="org.ognl">
+    <match>
       <includes>
-        <include>org.javassist</include>
+        <include>
+          <groupId>ognl</groupId>
+        </include>
       </includes>
-    </export>
+    </match>
+
+    <apply-to-dependencies>
+      <dependencies>
+        <match>
+          <includes>
+            <include>org.javassist</include>
+          </includes>
+        </match>
+        <apply>
+          <export>true</export>
+        </apply>
+      </dependencies>
+    </apply-to-dependencies>
+
+
+    <apply-to-module>
+      <dependencies>
+        <module name="org.javassist" />
+      </dependencies>
+    </apply-to-module>
   </module>
 </modules>
