@@ -18,30 +18,13 @@
 -->
 
 <modules xmlns="http://smartics.de/ns/jboss-modules-descriptor/1">
-  <module name="org.jdom.jdom1">
+  <module name="org.dom4j">
     <match>
       <includes>
         <include>
-          <groupId>org.jdom</groupId>
-          <artifactId>jdom</artifactId>
+          <artifactId>dom4j</artifactId>
         </include>
       </includes>
     </match>
-  </module>
-
-  <module name="org.jdom.jdom2">
-    <match>
-      <includes>
-        <include>
-          <groupId>org.jdom</groupId>
-          <artifactId>jdom2</artifactId>
-        </include>
-      </includes>
-    </match>
-    <apply-to-module>
-      <dependencies>
-        <module name="javax.api" />
-      </dependencies>
-    </apply-to-module>
   </module>
 </modules>
