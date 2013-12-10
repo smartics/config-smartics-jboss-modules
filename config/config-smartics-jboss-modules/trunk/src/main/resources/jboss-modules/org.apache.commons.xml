@@ -21,10 +21,10 @@
   <module name="org.apache.commons.$1">
     <match>
       <includes>
-      <include>
-        <groupId>commons-.*</groupId>
-        <artifactId>commons-(.*)</artifactId>
-      </include>
+        <include>
+          <groupId>commons-.*</groupId>
+          <artifactId>commons-(.*)</artifactId>
+        </include>
       </includes>
     </match>
   </module>
