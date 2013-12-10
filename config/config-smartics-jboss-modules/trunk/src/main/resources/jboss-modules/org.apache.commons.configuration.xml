@@ -18,24 +18,29 @@
 -->
 
 <modules xmlns="http://smartics.de/ns/jboss-modules-descriptor/1">
-  <module name="org.apache.commons.$1">
+  <module name="org.apache.commons.configuration">
+    <!-- Requires exclusion to be set for xml-apis
+
+          <dependencyExcludes>
+            <exclude>
+              <groupId>xml-apis</groupId>
+              <artifactId>xml-apis</artifactId>
+            </exclude>
+          </dependencyExcludes>
+     -->
     <match>
       <includes>
         <include>
-          <groupId>commons-.*</groupId>
-          <artifactId>commons-(.*)</artifactId>
-        </include>
-      </includes>
-      <excludes>
-        <exclude>
-          <groupId>commons-digester</groupId>
-          <artifactId>commons-digester</artifactId>
-        </exclude>
-        <exclude>
           <groupId>commons-configuration</groupId>
           <artifactId>commons-configuration</artifactId>
-        </exclude>
-      </excludes>
+        </include>
+      </includes>
     </match>
+
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+      </dependencies>
+    </apply-to-module>
   </module>
 </modules>
