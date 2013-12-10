@@ -27,6 +27,11 @@
         </include>
       </includes>
     </match>
+    <apply-to-module>
+      <dependencies>
+        <module name="javax.api" />
+      </dependencies>
+    </apply-to-module>
   </module>
 
   <module name="org.jdom.jdom2">
