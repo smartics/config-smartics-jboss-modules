@@ -34,4 +34,36 @@
       </includes>
     </match>
   </module>
+
+  <module
+    name="org.jboss.logging"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>org.jboss.logging</groupId>
+        </include>
+      </includes>
+    </match>
+  </module>
+
+  <module
+    name="org.jboss.logmanager"
+    slot="main">
+    <directives>
+      <skip>true</skip>
+    </directives>
+
+    <match>
+      <includes>
+        <include>
+          <groupId>org.jboss.logmanager</groupId>
+        </include>
+      </includes>
+    </match>
+  </module>
 </modules>
