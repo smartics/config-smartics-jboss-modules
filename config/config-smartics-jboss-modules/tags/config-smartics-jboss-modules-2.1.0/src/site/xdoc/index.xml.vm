@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2013-2014 smartics, Kronseder & Reiner GmbH
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<document>
+    <head profile="http://dublincore.org/documents/dcq-html/">
+      <title>Overview</title>
+
+      <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+      <link rel="DC.rights copyright" href="license.html" />
+
+      <meta name="keywords" content="configuration, JBoss modules, archive, maven plugin, maven"/>
+      <meta name="description" content="Homepage of the smartics' configuration of the JBoss modules Maven plugin."/>
+      <meta name="author" content="smartics"/>
+
+      <meta name="DC.title" content="config-smartics-jboss-modules"/>
+      <meta name="DC.creator" content="smartics"/>
+      <meta name="DC.subject" content="Homepage of smartics' configuration for the JBoss modules Maven plugin"/>
+      <meta name="DC.description" content="Homepage of the smartics' configuration of the JBoss modules Maven plugin."/>
+      <meta name="DC.publisher" content="smartics"/>
+      <meta name="DC.rights" content="Copyright 2013 smartics"/>
+    </head>
+	<body>
+    <section name="Overview">
+      <p>
+        This project provides a configuration for the <a href="${webroot}/smartics-jboss-modules-maven-plugin">smartics-jboss-modules-maven-plugin</a>.
+        This configuration contains standard mappings of dependencies to their
+        <a href="https://docs.jboss.org/author/display/MODULES/Home">JBoss modules</a>
+        representation.
+      </p>
+      <p>
+        The module descriptors are stored inside the <code>jboss-modules</code>
+        folder of the artifact. The files are collections of
+        <a href="${webroot}/smartics-jboss-modules-maven-plugin/module.html">module</a>s.
+      </p>
+      <p>
+        Here is an example that maps some dependencies from Apache's commons
+        to the <code>org.apache.commmons</code> namespace of JBoss modules.
+      </p>
+      <source><![CDATA[<modules xmlns="http://smartics.de/jboss-modules-descriptor">
+  <module>
+    <name>org.apache.commons.$1</name>
+    <includes>
+      <include>
+        <artifactId>commons-(.*)</artifactId>
+      </include>
+    </includes>
+  </module>
+</modules>]]></source>
+      <p>
+        If you want to send modules to a certain slot, add the <code>slot</code>
+        element like this:
+      </p>
+      <source><![CDATA[<modules xmlns="http://smartics.de/jboss-modules-descriptor">
+  <module>
+    <name>org.apache.xalan</name>
+    <slot>main</slot>
+    <includes>
+      <include>
+        <groupId>xalan</groupId>
+        <artifactId>xalan</artifactId>
+      </include>
+      <include>
+        <groupId>xalan</groupId>
+        <artifactId>serializer</artifactId>
+      </include>
+    </includes>
+    <dependencies>
+      <dependency>
+        <name>javax.api</name>
+      </dependency>
+    </dependencies>
+    <skip>true</skip>
+  </module>
+</modules>]]></source>
+      <p>
+        For module descriptors that lack the slot element, the parameter
+        <a href="${webroot}/smartics-jboss-modules-maven-plugin/create-modules-archive-mojo.html#defaultSlot">defaultSlot</a>
+        will override the slot.
+      </p>
+      <p>
+        The example above also show, how to add static dependencies to the module.
+      </p>
+      <p>
+        For more information on this topic, please refer to
+        the <a href="${webroot}/smartics-jboss-modules-maven-plugin/index.html">smartics-jboss-modules-maven-plugin's homepage</a>.
+      </p>
+    </section>
+  </body>
+</document>
