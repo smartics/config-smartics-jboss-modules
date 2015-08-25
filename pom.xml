@@ -8,10 +8,10 @@
   <version>2.1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>${project.artifactId}</name>
+  <name>smartics JBoss Modules Config</name>
   <description>
     Provides a configuration for creating module folders with the
-    smartics-jboss-modules-maven-plugin.
+    smartics JBoss Modules Maven Plugin.
   </description>
   <url>${weburl}</url>
   <inceptionYear>2013</inceptionYear>
@@ -49,9 +49,10 @@
   </developers>
 
   <scm>
-    <connection>scm:svn:https://www.smartics.eu/svn/public/config/${project.artifactId}/trunk</connection>
-    <developerConnection>scm:svn:https://www.smartics.eu/svn/public/config/${project.artifactId}/trunk</developerConnection>
-    <url>https://www.smartics.eu/svn/public/config/${project.artifactId}/trunk</url>
+    <connection>scm:git:git@github.com:smartics/config-smartics-jboss-modules</connection>
+    <developerConnection>scm:git:git@github.com:smartics/config-smartics-jboss-modules</developerConnection>
+    <url>https://github.com/smartics/config-smartics-jboss-modules</url>
+    <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>jira</system>
