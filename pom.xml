@@ -5,7 +5,7 @@
 
   <groupId>de.smartics.config</groupId>
   <artifactId>config-smartics-jboss-modules</artifactId>
-  <version>2.1.0-SNAPSHOT</version>
+  <version>2.1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>smartics JBoss Modules Config</name>
@@ -56,41 +56,33 @@
   </scm>
   <issueManagement>
     <system>jira</system>
-    <url>https://www.smartics.eu/jira/projects/SMRU</url>
+    <url>https://www.smartics.eu/jira/projects/SJBMC</url>
   </issueManagement>
 
   <distributionManagement>
-    <repository>
-      <id>${project-visibility}</id>
-      <name>internal smartics release repository</name>
-      <url>${repo.server.upload}/${project-visibility}</url>
-    </repository>
     <snapshotRepository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>${project-visibility}-snapshot</id>
-      <name>internal smartics snapshot repository</name>
-      <url>${repo.server.upload}/${project-visibility}-snapshot</url>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
     <site>
-      <id>${project-visibility}-site</id>
+      <id>${info.project.visibility}-site</id>
       <name>documentation site</name>
-      <url>${site.root}/${project.groupId}/${project.artifactId}/${project.version}</url>
+      <url>${build.server.site.upload}/${project.groupId}/${project.artifactId}/${project.version}</url>
     </site>
   </distributionManagement>
 
   <properties>
-    <!-- The project visibility decides where the project's artifacts are deployed.
-         Valid values are: public, corporation -->
-    <project-visibility>public</project-visibility>
-    <issues.classification>Build Management</issues.classification>
-    <issues-product>${project.artifactId}</issues-product>
-    <issues-component />
-
-    <sonarId>${project.groupId}:${project.artifactId}</sonarId>
-
     <donationId>ZNFSBTAQJ49HA</donationId>
-    <!--<ohlohProjectId>485170</ohlohProjectId>-->
     <twitterId>smartics</twitterId>
+
+    <info.server.web>https://www.smartics.eu/confluence/display</info.server.web>
+    <homepage>${info.server.web}/SJBMMP/Import+Module+Descriptors</homepage>
+    <homepage_sjbmmp>${info.server.web}/SJBMMP</homepage_sjbmmp>
+    <web-modules>${info.server.web}/SJBMMP/The+smartics+JBoss+Modules+XSD</web-modules>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -109,44 +101,33 @@
     <webroot>https://${build.server.name}</webroot>
     <weburl>${webroot}/${project.groupId}/${project.artifactId}/${project.version}</weburl>
     <scm-weburl>https://${build.server.name}/svn/public</scm-weburl> <!-- No subdir ${project-visibility} currently. -->
-    <issues-vendor>bugzilla</issues-vendor>
-    <issues-url>https://${build.server.name}/bugzilla</issues-url>
-    <ci-url>https://${build.server.name}/hudson</ci-url>
-    <sonar-url>https://${build.server.name}/sonar</sonar-url>
-    <sonar-url-project>${sonar-url}/dashboard/index/${sonarId}</sonar-url-project>
-    <repo-url>https://${server.name}/nexus</repo-url> <!-- HTTPs -->
-    <repo-download-url>${repo-url}/service/local/artifact/maven/redirect</repo-download-url>
 
     <webroot-projects>http://www.smartics.de/projects</webroot-projects>
-    <maven-fluido-smartics-skin_version>2.0.5</maven-fluido-smartics-skin_version>
+    <maven-fluido-smartics-skin_version>2.1.0</maven-fluido-smartics-skin_version>
 
-    <issues-maven-plugin.version>0.4.4</issues-maven-plugin.version>
-
-    <hudson-maven-plugin.version>0.2.8</hudson-maven-plugin.version>
+<!--     <hudson-maven-plugin.version>0.2.8</hudson-maven-plugin.version>
     <config-smartics-hudson.version>0.3.0</config-smartics-hudson.version>
+ -->
+    <version.buildmetadata-maven-plugin>1.6.1</version.buildmetadata-maven-plugin>
 
-    <buildmetadata-maven-plugin.version>1.4.0</buildmetadata-maven-plugin.version>
-    <bugzilla-maven-plugin.version>0.7.0</bugzilla-maven-plugin.version>
-
-    <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-    <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
-    <maven-dependency-plugin.version>2.8</maven-dependency-plugin.version>
-    <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
-    <maven-deploy-plugin.version>2.8.1</maven-deploy-plugin.version>
-    <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
-    <maven-release-plugin.version>2.4.2</maven-release-plugin.version>
-    <maven-install-plugin.version>2.5.1</maven-install-plugin.version>
-    <maven-scm-plugin.version>1.8.1</maven-scm-plugin.version>
-    <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
+    <version.maven-source-plugin>2.2.1</version.maven-source-plugin>
+    <version.maven-clean-plugin>2.5</version.maven-clean-plugin>
+    <version.maven-dependency-plugin>2.8</version.maven-dependency-plugin>
+    <version.maven-resources-plugin>2.6</version.maven-resources-plugin>
+    <version.maven-deploy-plugin>2.8.1</version.maven-deploy-plugin>
+    <version.maven-jar-plugin>2.4</version.maven-jar-plugin>
+    <version.maven-release-plugin>2.4.2</version.maven-release-plugin>
+    <version.maven-install-plugin>2.5.1</version.maven-install-plugin>
+    <version.maven-scm-plugin>1.8.1</version.maven-scm-plugin>
+    <version.maven-project-info-reports-plugin>2.7</version.maven-project-info-reports-plugin>
     <versions-maven-plugin.version>2.1</versions-maven-plugin.version>
-    <maven-sortpom-plugin.version>2.2.1</maven-sortpom-plugin.version>
+    <version.maven-sortpom-plugin>2.2.1</version.maven-sortpom-plugin>
+    <version.maven-gpg-plugin>1.6</version.maven-gpg-plugin>
 
-    <maven-site-plugin.version>3.3</maven-site-plugin.version>
-    <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
-    <plantuml-maven-plugin.version>7954</plantuml-maven-plugin.version>
+    <version.maven-site-plugin>3.3</version.maven-site-plugin>
 
-    <projectmetadata-maven-plugin.version>0.2.2</projectmetadata-maven-plugin.version>
-    <maven-license-plugin.version>1.9.0</maven-license-plugin.version>
+    <version.projectmetadata-maven-plugin>0.2.2</version.projectmetadata-maven-plugin>
+    <version.maven-license-plugin>1.9.0</version.maven-license-plugin>
   </properties>
 
   <build>
@@ -155,22 +136,22 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>${maven-clean-plugin.version}</version>
+          <version>${version.maven-clean-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>${maven-dependency-plugin.version}</version>
+          <version>${version.maven-dependency-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>${maven-resources-plugin.version}</version>
+          <version>${version.maven-resources-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>${maven-deploy-plugin.version}</version>
+          <version>${version.maven-deploy-plugin}</version>
           <dependencies>
             <dependency>
               <groupId>org.apache.maven.wagon</groupId>
@@ -182,7 +163,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>${maven-jar-plugin.version}</version>
+          <version>${version.maven-jar-plugin}</version>
           <configuration>
             <index>true</index>
             <archive>
@@ -210,20 +191,22 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>${maven-install-plugin.version}</version>
+          <version>${version.maven-install-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>${maven-release-plugin.version}</version>
+          <version>${version.maven-release-plugin}</version>
           <configuration>
+            <useReleaseProfile>false</useReleaseProfile>
             <releaseProfiles>release</releaseProfiles>
+            <goals>deploy site-deploy</goals>
           </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-plugin</artifactId>
-          <version>${maven-scm-plugin.version}</version>
+          <version>${version.maven-scm-plugin}</version>
           <configuration>
             <connectionType>developerConnection</connectionType>
           </configuration>
@@ -232,13 +215,13 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>${maven-project-info-reports-plugin.version}</version>
+          <version>${version.maven-project-info-reports-plugin}</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>${maven-site-plugin.version}</version>
+          <version>${version.maven-site-plugin}</version>
           <dependencies>
             <dependency>
               <!-- add support for ssh/scp -->
@@ -469,7 +452,7 @@
         <plugin>
           <groupId>com.google.code.sortpom</groupId>
           <artifactId>maven-sortpom-plugin</artifactId>
-          <version>${maven-sortpom-plugin.version}</version>
+          <version>${version.maven-sortpom-plugin}</version>
           <dependencies>
             <dependency>
               <groupId>de.smartics.config</groupId>
@@ -493,7 +476,7 @@
       <plugin>
         <groupId>de.smartics.maven.plugin</groupId>
         <artifactId>buildmetadata-maven-plugin</artifactId>
-        <version>${buildmetadata-maven-plugin.version}</version>
+        <version>${version.buildmetadata-maven-plugin}</version>
         <executions>
           <execution>
             <phase>initialize</phase>
@@ -522,7 +505,7 @@
       <plugin>
         <groupId>com.mycila.maven-license-plugin</groupId>
         <artifactId>maven-license-plugin</artifactId>
-        <version>${maven-license-plugin.version}</version>
+        <version>${version.maven-license-plugin}</version>
         <executions>
           <execution>
             <goals>
@@ -540,9 +523,6 @@
             <year>${build.copyright.year}</year>
           </properties>
           <excludes>
-            <exclude>**/.externalToolBuilders/**</exclude>
-            <exclude>**/.factorypath</exclude>
-            <exclude>**/.apt_generated/**</exclude>
             <exclude>**/.fbprefs</exclude>
             <exclude>**/.pmd</exclude>
             <exclude>**/.checkstyle</exclude>
@@ -555,9 +535,8 @@
             <exclude>**/*.umlusc</exclude>
             <exclude>**/javadoc.xml</exclude>
             <exclude>**/header.txt</exclude>
-            <exclude>**/goals.txt</exclude> <!-- shitty plugin -->
-            <exclude>**/build.log</exclude> <!-- shitty plugin -->
-            <exclude>.jupiter</exclude>
+            <exclude>**/*.md</exclude>
+            <exclude>.gitignore</exclude>
           </excludes>
           <mapping>
             <!--  Unfortunately we use xml.vm extensions to filter xdoc pages.
@@ -576,7 +555,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>${maven-project-info-reports-plugin.version}</version>
+        <version>${version.maven-project-info-reports-plugin}</version>
         <reportSets>
           <reportSet>
             <reports>
@@ -602,8 +581,76 @@
       <plugin>
         <groupId>de.smartics.maven.plugin</groupId>
         <artifactId>buildmetadata-maven-plugin</artifactId>
-        <version>${buildmetadata-maven-plugin.version}</version>
+        <version>${version.buildmetadata-maven-plugin}</version>
       </plugin>
     </plugins>
   </reporting>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${version.maven-source-plugin}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${version.maven-javadoc-plugin}</version>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </plugin>
+          <plugin>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>${version.maven-deploy-plugin}</version>
+            <configuration>
+              <updateReleaseInfo>true</updateReleaseInfo>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${version.maven-gpg-plugin}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

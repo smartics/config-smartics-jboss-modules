@@ -45,7 +45,7 @@
       <p>
         The module descriptors are stored inside the <code>jboss-modules</code>
         folder of the artifact. The files are collections of
-        <a href="${webroot}/smartics-jboss-modules-maven-plugin/module.html">module</a>s.
+        <a href="${web-modules}">module</a>s.
       </p>
       <p>
         Here is an example that maps some dependencies from Apache's commons
@@ -97,7 +97,7 @@
       </p>
       <p>
         For more information on this topic, please refer to
-        the <a href="${webroot}/smartics-jboss-modules-maven-plugin/index.html">smartics-jboss-modules-maven-plugin's homepage</a>.
+        the <a href="${homepage_sjbmmp}">smartics JBoss Modules Maven Plugin's homepage</a>.
       </p>
     </section>
   </body>

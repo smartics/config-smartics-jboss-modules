@@ -17,6 +17,19 @@
 
 -->
 <project name="${project.name}">
+  <!--
+    The icon for the project is designed by
+              Mattahan (Paul Davey, http://mattahan.deviantart.com)
+    as part of the icon set
+              Buuf (http://findicons.com/pack/50/buuf)
+    and used under
+        Creative Commons Attribution Non-commercial Share Alike (by-nc-sa)
+               (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+
+    Origin: http://mattahan.deviantart.com/art/Buuf-37966044
+              thepngs/Benders/Open Ended/Cabinets.png
+   -->
+
   <publishDate position="bottom" format="dd. MMMM yyyy"/>
   <version position="right"/>
 
@@ -33,18 +46,6 @@
     </fluidoSkin>
   </custom>
 
-  <!--
-    The icon for the project is designed by
-              Mattahan (Paul Davey, http://mattahan.deviantart.com)
-    as part of the icon set
-              Buuf (http://findicons.com/pack/50/buuf)
-    and used under
-        Creative Commons Attribution Non-commercial Share Alike (by-nc-sa)
-               (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-
-    Origin: http://mattahan.deviantart.com/art/Buuf-37966044
-              thepngs/Benders/Open Ended/Cabinets.png
-   -->
   <bannerLeft>
     <name>${project.name}</name>
     <src>images/logos/logo.png</src>
@@ -70,9 +71,9 @@
 
     <menu name="Overview">
       <item name="Introduction"        href="index.html"/>
-      <item name="Homepage"            href="${webroot}/confluence/display/SJBMMP"/>
-      <item name="Project Blog"        href="${webroot}/confluence/display/SJBMMP#smarticsJBossModulesMavenPlugin-ProjectBlog"/>
-      <item name="Accessing Artifacts" href="http://www.smartics.de/projects/accessing-artifacts"/>
+      <item name="Plugin Home"         href="${homepage_sjbmmp}"/>
+      <item name="Import"              href="${homepage}"/>
+      <item name="Project Blog"        href="${homepage_sjbmmp}#smarticsJBossModulesMavenPlugin-ProjectBlog"/>
       <item name="Latest Version"      href="${webroot}/${project.artifactId}/index.html"/>
       <item name="All Versions"        href="${webroot}/${project.groupId}/${project.artifactId}/"/>
     </menu>
@@ -80,6 +81,7 @@
     <menu name="Project Documentation">
       <item name="Project Information" href="project-info.html" collapse="true">
         <item name="Summary" href="project-summary.html"/>
+        <item name="Build Report"       href="build-report.html"/>
         <item name="Team" href="team-list.html"/>
         <item name="License" href="license.html"/>
       </item>
